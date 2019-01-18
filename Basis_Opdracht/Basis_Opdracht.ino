@@ -8,16 +8,16 @@ pinMode(9, OUTPUT);
 }
 
 void loop() {
+  digitalWrite(1, HIGH);
+  delay(1000);
+  digitalWrite(1, LOW);
   digitalWrite(2, HIGH);
   delay(1000);
   digitalWrite(2, LOW);
-  digitalWrite(9, HIGH);
-  delay(1000);
-  digitalWrite(9, LOW);
-  digitalWrite(11, HIGH);
+  digitalWrite(3, HIGH);
   delay(1000); 
-  digitalWrite(11, LOW);
-  digitalWrite(13, HIGH);
+  digitalWrite(3, LOW);
+  digitalWrite(4, HIGH);
   delay(1000);
-  digitalWrite(13, LOW);
+  digitalWrite(4, LOW);
 }
