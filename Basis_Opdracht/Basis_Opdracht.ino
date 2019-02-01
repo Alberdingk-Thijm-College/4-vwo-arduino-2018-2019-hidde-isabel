@@ -1,4 +1,4 @@
-
+int remember = 0;
 
 void setup() {
 pinMode(1, OUTPUT);
@@ -12,83 +12,68 @@ pinMode(10, OUTPUT);
 pinMode(11, OUTPUT);
 pinMode(12, OUTPUT);
 pinMode(13, INPUT); 
+Serial.begin(9600);
 }
 
 void loop() {
   
-if(digitalRead(13) == HIGH) { 
-  digitalWrite(2, HIGH);
+digitalWrite(2, HIGH);
   digitalWrite(3, HIGH);
   digitalWrite(4, HIGH);
   digitalWrite(5, HIGH);
+  digitalWrite(12, LOW); 
+  wait(500);
+  digitalWrite(1, LOW);
+  digitalWrite(8, HIGH);
+  wait(1000); 
+  digitalWrite(8, LOW);
+  digitalWrite(1, HIGH);
+  digitalWrite(2, HIGH); 
+  wait(500); 
+  digitalWrite(2, LOW);
+  digitalWrite(9, HIGH);
+  wait(1000); 
+  digitalWrite(9, LOW); 
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  wait(500); 
+  digitalWrite(3, LOW); 
+  digitalWrite(10, HIGH);
+  wait(1000);
+  digitalWrite(4, HIGH); 
+  digitalWrite(3, HIGH);
+  digitalWrite(10, LOW);
+  wait(500);
+  digitalWrite(4, LOW);
+  digitalWrite(11, HIGH);
+  wait(1000);
+  digitalWrite(11, LOW); 
+  digitalWrite(4, HIGH);
+
+
+if(remember == 1)
+{
+  wait(500);
+  digitalWrite(12, HIGH); 
+  digitalWrite(5, LOW); 
+  wait(1000);
   digitalWrite(12, LOW);
-  delay(500);
-  digitalWrite(1, LOW);
-  digitalWrite(8, HIGH);
-  delay(1000); 
-  digitalWrite(8, LOW);
-  digitalWrite(1, HIGH);
-  digitalWrite(2, HIGH); 
-  delay(500); 
-  digitalWrite(2, LOW);
-  digitalWrite(9, HIGH);
-  delay(1000); 
-  digitalWrite(9, LOW); 
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  delay(500); 
-  digitalWrite(3, LOW); 
-  digitalWrite(10, HIGH);
-  delay(1000);
-  digitalWrite(4, HIGH); 
-  digitalWrite(3, HIGH);
-  digitalWrite(10, LOW);
-  delay(500);
-  digitalWrite(4, LOW);
-  digitalWrite(11, HIGH);
-  delay(1000);
-  digitalWrite(11, LOW); 
-  digitalWrite(4, HIGH);
-  delay(500);
-  digitalWrite(5, LOW);
-  digitalWrite(12, HIGH);
-  delay(1000);
-}
-else {
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(4, HIGH);
   digitalWrite(5, HIGH);
-  delay(500);
-  digitalWrite(1, LOW);
-  digitalWrite(8, HIGH);
-  delay(1000); 
-  digitalWrite(8, LOW);
-  digitalWrite(1, HIGH);
-  digitalWrite(2, HIGH); 
-  delay(500); 
-  digitalWrite(2, LOW);
-  digitalWrite(9, HIGH);
-  delay(1000); 
-  digitalWrite(9, LOW); 
-  digitalWrite(2, HIGH);
-  digitalWrite(3, HIGH);
-  delay(500); 
-  digitalWrite(3, LOW); 
-  digitalWrite(10, HIGH);
-  delay(1000);
-  digitalWrite(4, HIGH); 
-  digitalWrite(3, HIGH);
-  digitalWrite(10, LOW);
-  delay(500);
-  digitalWrite(4, LOW);
-  digitalWrite(11, HIGH);
-  delay(1000);
-  digitalWrite(11, LOW); 
-  digitalWrite(4, HIGH);
-  delay(1000);
+  remember = 0;
 }
 }
 
-// lampje voetganger pin7 en knopje pin13
+void wait(int seconds)
+{
+  while(seconds > 0)
+  {
+    if(digitalRead(13)==HIGH)
+    {
+      remember = 1;
+      Serial.println("knopje aan");
+    }
+    delay(1);
+    seconds--;
+  }
+}
  
