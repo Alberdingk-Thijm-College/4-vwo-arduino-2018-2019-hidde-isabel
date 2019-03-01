@@ -1,10 +1,7 @@
  int remember = 0;
 
 void setup() {
-int RoadA = 6;
-int RoadB = 7; 
-int RoadC = 14;
-int RoadD = 15;
+
 pinMode(1, OUTPUT);
 pinMode(2, OUTPUT);
 pinMode(3, OUTPUT);
